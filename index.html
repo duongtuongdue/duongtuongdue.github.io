@@ -284,12 +284,23 @@
             color: var(--ink);
         }
 
-        /* featured project */
+        /* featured projects */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
         .feature {
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 22px;
+            padding: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
         }
 
         .feature h3 {
@@ -317,8 +328,223 @@
         }
 
         .feature li {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             font-size: 14.5px;
+        }
+
+        /* media split layout for feature card */
+        .feature-with-media {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .feature-content-col {
+            min-width: 0;
+        }
+
+        .feature-media-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .thumb-preview-wrap {
+            position: relative;
+            background: #1e1e2e;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .thumb-preview-wrap:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(10, 107, 84, 0.2);
+        }
+
+        .thumb-header-bar {
+            background: #181825;
+            padding: 7px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .thumb-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .thumb-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+        .thumb-dot.red { background: #ff5f56; }
+        .thumb-dot.yellow { background: #ffbd2e; }
+        .thumb-dot.green { background: #27c93f; }
+
+        .thumb-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            color: #a6adc8;
+            letter-spacing: 0.02em;
+        }
+
+        .thumb-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 270px;
+            object-fit: cover;
+            object-position: top;
+            transition: opacity 0.2s;
+        }
+
+        .thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(14, 21, 18, 0.72);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            backdrop-filter: blur(2px);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .thumb-preview-wrap:hover .thumb-overlay {
+            opacity: 1;
+        }
+
+        .thumb-caption {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* Lightbox modal */
+        .img-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            padding: 24px;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .img-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content-box {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #181825;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.94); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            width: 100%;
+            background: #11111b;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-title {
+            color: #cdd6f4;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .modal-close-btn {
+            background: transparent;
+            border: none;
+            color: #a6adc8;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: color 0.15s, background 0.15s;
+        }
+
+        .modal-close-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-body {
+            padding: 14px;
+            overflow: auto;
+            max-height: calc(90vh - 60px);
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-body img {
+            max-width: 100%;
+            max-height: 78vh;
+            border-radius: 6px;
+            object-fit: contain;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 720px) {
+            .feature-with-media {
+                grid-template-columns: 1fr;
+            }
+            .feature-media-col {
+                margin-top: 14px;
+                align-items: flex-start;
+            }
+            .thumb-preview-wrap {
+                max-width: 100%;
+            }
+            .thumb-img {
+                max-height: 320px;
+            }
         }
 
         .eduline {
@@ -472,33 +698,32 @@
                 <div class="job">
                     <div class="jtop">
                         <span class="jrole">Finviet — Backend Team Leader</span>
-                        <span class="jdate">Sep 2025 – Sep 2026</span>
+                        <span class="jdate">Jul 2025 – Present</span>
                     </div>
-                    <div class="jsub">ECO DMS — Distribution Management System · Team of 6 · <a href="https://finviet.com.vn" target="_blank" rel="noopener">finviet.com.vn</a></div>
-                    <p style="font-size: 14.5px; margin-bottom: 8px;"><strong>Project description:</strong> ECO DMS is a distribution management platform in Finviet’s retail ecosystem, helping brands and manufacturers optimize retail sales and supply chain workflows based on market data. The backend is architected as a NestJS monorepo comprising multiple microservices and shared libraries to handle high-throughput operations.</p>
+                    <div class="jsub">ECO DMS &amp; DMS90 — Distribution Management Platforms · Team of 6 · <a href="https://finviet.com.vn" target="_blank" rel="noopener">finviet.com.vn</a></div>
+                    
+                    <p style="font-size: 14.5px; margin-bottom: 6px;"><strong>ECO DMS (NestJS Monorepo Architecture):</strong></p>
                     <ul>
                         <li>Led a backend engineering team of 6 members; drove technical architecture decisions, sprint planning, task delegation, and PR code reviews.</li>
-                        <li>In charge of developing and maintaining core services and platforms within the monorepo architecture, including:
-                            <ul style="list-style-type: circle; margin-top: 4px; margin-bottom: 4px;">
-                                <li>Web &amp; Mobile API Gateways</li>
-                                <li>Web Portal</li>
-                                <li>Data Synchronization Service (real-time data sync across retail nodes)</li>
-                                <li>Scheduled Job &amp; Background Worker Services</li>
-                                <li>KPI Reporting &amp; Analytics Engine</li>
-                            </ul>
-                        </li>
+                        <li>In charge of developing and maintaining core services within the monorepo architecture: Web &amp; Mobile API Gateways, Web Portal, Data Synchronization Service (real-time sync across retail nodes), Scheduled Job Worker Services, and KPI Reporting Engine.</li>
                         <li>Designed scalable MongoDB schemas for distribution network data and leveraged Redis for multi-layer caching and query optimization.</li>
                         <li>Implemented asynchronous event-driven workflows using RabbitMQ (Work Queue model) and Kafka to offload heavy operations (data synchronization, batch reporting, audit logging) from client-facing services.</li>
                         <li>Containerized services using Docker and collaborated on CI/CD deployment workflows with GitLab CI, Kubernetes, and ArgoCD.</li>
                     </ul>
-                    <div class="tech-tagline"><strong>Technologies:</strong> NestJS, TypeScript, ReactJS, MongoDB, Redis, RabbitMQ, Kafka, Docker, Kubernetes, GitLab CI/CD, ArgoCD.</div>
+
+                    <p style="font-size: 14.5px; margin-top: 10px; margin-bottom: 6px;"><strong>DMS90 (White-Label Modular Platform):</strong></p>
+                    <ul>
+                        <li>Maintained and evolved the DMS90 platform, structured with sub-repositories to package modular white-label distribution solutions for enterprise clients using <strong>PHP (Apiato framework)</strong> and <strong>ReactJS</strong>.</li>
+                        <li>Acted as Senior Developer maintaining and resolving critical bugs across the Web Portal; integrated centralized log messaging and error tracking with automated real-time alert notifications to Slack.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> NestJS, TypeScript, PHP (Apiato/Laravel), ReactJS, MongoDB, Redis, RabbitMQ, Kafka, Docker, Kubernetes, GitLab CI/CD, Slack API.</div>
                 </div>
 
                 <!-- Tanaakk VN -->
                 <div class="job">
                     <div class="jtop">
-                        <span class="jrole">Tanaakk VN — Senior Full Stack Developer (Sub-Lead)</span>
-                        <span class="jdate">Apr 2023 – Sep 2025</span>
+                        <span class="jrole">Tanaakk VN — Senior Full Stack Developer</span>
+                        <span class="jdate">Apr 2023 – Jul 2025</span>
                     </div>
                     <div class="jsub">Uqey (Tokai Rika) — Keyless car-rental mobile app, live across Japan · Team of 8 · <a href="https://uqey.com" target="_blank" rel="noopener">uqey.com</a></div>
                     <p style="font-size: 14.5px; margin-bottom: 8px;"><strong>Project description:</strong> Uqey is an innovative 24/7 keyless car-rental platform operating across Japan (Okinawa, Fukuoka, etc.), enabling users to reserve, unlock, and return vehicles directly via a mobile app without physical paperwork or keys.</p>
@@ -578,18 +803,57 @@
                 </div>
             </section>
 
-            <section>
-                <h2>Featured Project</h2>
-                <div class="feature">
-                    <span class="ftag">ECO DMS · Finviet</span>
-                    <h3>Retail Distribution Management System</h3>
-                    <p>Enterprise distribution management platform for brands and manufacturers, covering web and mobile API gateways, web management portals, real-time data synchronization, scheduled background jobs, and KPI reporting.</p>
-                    <ul>
-                        <li><strong>Architecture:</strong> NestJS monorepo comprising multiple microservices and shared <span class="mono">@app/*</span> libraries for high-throughput distribution operations.</li>
-                        <li><strong>Data &amp; Messaging:</strong> MongoDB schemas as single source of truth, Redis caching, RabbitMQ Work Queue and Kafka workflows for event-driven asynchronous processing.</li>
-                        <li><strong>DevOps &amp; Delivery:</strong> GitLab CI/CD pipelines, containerized with Docker, deployed to Kubernetes, and managed via ArgoCD across multi-pod services.</li>
-                        <li><strong>Team Leadership:</strong> Managed a backend team of 6 engineers, driving sprint planning, architecture, task breakdown, and code reviews.</li>
-                    </ul>
+            <section id="featured-projects">
+                <h2>Featured Projects</h2>
+                <div class="features-list">
+                    <!-- Project 1: ECO DMS -->
+                    <div class="feature">
+                        <span class="ftag">ECO DMS · Finviet</span>
+                        <h3>Retail Distribution Management System</h3>
+                        <p>Enterprise distribution management platform for brands and manufacturers, covering web and mobile API gateways, web management portals, real-time data synchronization, scheduled background jobs, and KPI reporting.</p>
+                        <ul>
+                            <li><strong>Architecture:</strong> NestJS monorepo comprising multiple microservices and shared <span class="mono">@app/*</span> libraries for high-throughput distribution operations.</li>
+                            <li><strong>Data &amp; Messaging:</strong> MongoDB schemas as single source of truth, Redis caching, RabbitMQ Work Queue and Kafka workflows for event-driven asynchronous processing.</li>
+                            <li><strong>DevOps &amp; Delivery:</strong> GitLab CI/CD pipelines, containerized with Docker, deployed to Kubernetes, and managed via ArgoCD across multi-pod services.</li>
+                            <li><strong>Team Leadership:</strong> Managed a backend team of 6 engineers, driving sprint planning, architecture, task breakdown, and code reviews.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project 2: Go Project with DDD Architecture -->
+                    <div class="feature">
+                        <div class="feature-with-media">
+                            <div class="feature-content-col">
+                                <span class="ftag">Go (Golang) · Clean Architecture / DDD</span>
+                                <h3>High-Concurrency Go Service (Domain-Driven Design)</h3>
+                                <p>Modular, high-performance Go backend structured under <strong>Domain-Driven Design (DDD)</strong> and <strong>Clean Architecture</strong> principles. Designed for enterprise-scale microservices requiring ultra-low latency, strict boundary separation, and seamless protocol delivery.</p>
+                                <ul>
+                                    <li><strong>Domain Isolation &amp; Core Purity:</strong> Independent domain layer (<span class="mono">domain/model</span>, <span class="mono">domain/repository</span>) encapsulating pure business entities and repository contracts with zero external dependencies.</li>
+                                    <li><strong>Bounded Contexts:</strong> Modular feature packages (<span class="mono">internal/auth</span>, <span class="mono">internal/user</span>) encapsulating dedicated application services, DTOs, controllers, and infrastructure adapters.</li>
+                                    <li><strong>Multi-Protocol Delivery:</strong> Unified controller delivery layer supporting both RESTful HTTP handlers (<span class="mono">controller/http</span>) and high-throughput gRPC services (<span class="mono">controller/grpc</span>) with strongly-typed DTO validation.</li>
+                                    <li><strong>Application &amp; Scheduled Tasks:</strong> Orchestrated application use cases (<span class="mono">application/service</span>) and background workers (<span class="mono">application/schedule</span>) decoupling business logic from execution triggers.</li>
+                                    <li><strong>Enterprise Infrastructure &amp; Tooling:</strong> Automated SQL schema provisioning (<span class="mono">init.sql</span>), multi-stage containerization (<span class="mono">Dockerfile</span>, <span class="mono">build.sh</span>), environment configurations (<span class="mono">environment/</span>), and Make automation (<span class="mono">Makefile</span>).</li>
+                                </ul>
+                            </div>
+                            <div class="feature-media-col">
+                                <div class="thumb-preview-wrap" onclick="openStructureModal()" title="Click to view full directory structure">
+                                    <div class="thumb-header-bar">
+                                        <div class="thumb-dots">
+                                            <span class="thumb-dot red"></span>
+                                            <span class="thumb-dot yellow"></span>
+                                            <span class="thumb-dot green"></span>
+                                        </div>
+                                        <span class="thumb-title">project-tree.go</span>
+                                    </div>
+                                    <img src="go_ddd_structure.png" alt="Go DDD Project Structure" class="thumb-img" />
+                                    <div class="thumb-overlay">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                                        <span>Click to Enlarge</span>
+                                    </div>
+                                </div>
+                                <div class="thumb-caption">📁 Go DDD Folder Structure</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -607,9 +871,46 @@
         </div>
     </main>
 
+    <!-- Structure Lightbox Modal -->
+    <div id="structureModal" class="img-modal" onclick="closeStructureModal(event)">
+        <div class="modal-content-box" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-title">📦 Go DDD Architecture — Folder Structure</div>
+                <button class="modal-close-btn" onclick="closeStructureModal()" aria-label="Close modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <img src="go_ddd_structure.png" alt="Go DDD Project Directory Structure" />
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="wrap">© 2026 Duong Tuong Due · Senior Backend Developer · Ho Chi Minh City, Vietnam</div>
     </footer>
+
+    <script>
+        function openStructureModal() {
+            const modal = document.getElementById('structureModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeStructureModal(e) {
+            const modal = document.getElementById('structureModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeStructureModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
