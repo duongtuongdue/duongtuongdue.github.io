@@ -1,240 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Duong Tuong Due — Technical Lead & Senior Full-Stack Developer</title>
-  <meta name="description" content="Technical Lead & Senior Full-Stack Developer with 8+ years across NestJS, PHP/Laravel, Node.js, AWS, MongoDB, RabbitMQ, Kafka, and CI/CD delivery." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #F3F5F4; --surface: #FFFFFF; --surface-2: #EAEEEC;
-      --ink: #16201C; --muted: #55635D; --line: #DCE2DF;
-      --navy: #1F3A5F; --accent: #0A6B54; --accent-2: #0E8A6B; --accent-soft: #E1F0EA;
-      --radius: 14px; --maxw: 900px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0E1512; --surface: #161E1A; --surface-2: #1D2721;
-        --ink: #E9EEEB; --muted: #9BA9A2; --line: #2A352F;
-        --navy: #9EC1E6; --accent: #33C79C; --accent-2: #57D8B2; --accent-soft: #16281F;
-      }
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    h1, h2, h3 { font-family: 'Archivo', system-ui, sans-serif; margin: 0; text-wrap: balance; }
-    .mono { font-family: 'JetBrains Mono', monospace; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duong Tuong Due — Senior Backend Developer</title>
+    <meta name="description"
+        content="Senior Backend Developer with 8+ years across NestJS, Go, PHP/Laravel, Node.js, AWS, MongoDB, RabbitMQ, Kafka, Docker, Kubernetes, and CI/CD delivery." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F3F5F4;
+            --surface: #FFFFFF;
+            --surface-2: #EAEEEC;
+            --ink: #16201C;
+            --muted: #55635D;
+            --line: #DCE2DF;
+            --navy: #1F3A5F;
+            --accent: #0A6B54;
+            --accent-2: #0E8A6B;
+            --accent-soft: #E1F0EA;
+            --radius: 14px;
+            --maxw: 900px;
+        }
 
-    /* hero */
-    header.hero { background: var(--surface); border-bottom: 1px solid var(--line); }
-    header.hero .wrap { padding: 46px 22px 40px; }
-    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 10px; }
-    .kicker::before { content: ""; width: 26px; height: 2px; background: var(--accent-2); }
-    h1 { font-size: clamp(32px, 6vw, 50px); font-weight: 800; letter-spacing: -.02em; line-height: 1.04; margin: 16px 0 8px; color: var(--navy); }
-    .role { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(16px, 2.6vw, 20px); color: var(--accent); }
-    .contact { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; color: var(--muted); }
-    .contact a { color: var(--muted); }
-    .contact a:hover { color: var(--accent); }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0E1512;
+                --surface: #161E1A;
+                --surface-2: #1D2721;
+                --ink: #E9EEEB;
+                --muted: #9BA9A2;
+                --line: #2A352F;
+                --navy: #9EC1E6;
+                --accent: #33C79C;
+                --accent-2: #57D8B2;
+                --accent-soft: #16281F;
+            }
+        }
 
-    main .wrap { padding: 8px 22px 40px; }
-    section { padding-top: 40px; }
-    h2 { font-size: clamp(20px, 3.6vw, 26px); font-weight: 700; color: var(--navy); letter-spacing: -.01em; padding-bottom: 8px; border-bottom: 2px solid var(--line); margin-bottom: 18px; }
-    p { margin: 0 0 14px; }
-    .lead { font-size: 17px; }
-    strong { font-weight: 600; }
+        * {
+            box-sizing: border-box;
+        }
 
-    /* skills */
-    .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .scard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
-    .scard h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: 10px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
-    .chip { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); padding: 4px 9px; border-radius: 6px; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* experience */
-    .job { border-left: 2px solid var(--line); padding: 0 0 22px 20px; position: relative; }
-    .job::before { content: ""; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent-2); }
-    .job:last-child { padding-bottom: 0; }
-    .jtop { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 14px; align-items: baseline; }
-    .jrole { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 17px; color: var(--ink); }
-    .jdate { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); white-space: nowrap; }
-    .jsub { font-size: 14px; color: var(--accent); font-style: italic; margin: 2px 0 8px; }
-    .job ul { margin: 0; padding-left: 18px; }
-    .job li { margin-bottom: 5px; font-size: 14.5px; }
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 22px;
+        }
 
-    /* featured project */
-    .feature { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
-    .feature h3 { font-size: 18px; color: var(--navy); margin-bottom: 6px; }
-    .feature .ftag { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; display: inline-block; margin-bottom: 10px; }
-    .feature ul { margin: 10px 0 0; padding-left: 18px; }
-    .feature li { margin-bottom: 5px; font-size: 14.5px; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
 
-    .eduline { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin-bottom: 8px; }
-    .eduline strong { color: var(--ink); }
-    .eduline span { color: var(--muted); font-size: 14.5px; }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    footer { border-top: 1px solid var(--line); margin-top: 48px; }
-    footer .wrap { padding: 22px; text-align: center; font-size: 13px; color: var(--muted); }
+        h1,
+        h2,
+        h3 {
+            font-family: 'Archivo', system-ui, sans-serif;
+            margin: 0;
+            text-wrap: balance;
+        }
 
-    @media (max-width: 620px) { .skills { grid-template-columns: 1fr; } }
-  </style>
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* hero */
+        header.hero {
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
+        }
+
+        header.hero .wrap {
+            padding: 46px 22px 40px;
+        }
+
+        .kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .kicker::before {
+            content: "";
+            width: 26px;
+            height: 2px;
+            background: var(--accent-2);
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 50px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            line-height: 1.04;
+            margin: 16px 0 8px;
+            color: var(--navy);
+        }
+
+        .role {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            font-size: clamp(16px, 2.6vw, 20px);
+            color: var(--accent);
+        }
+
+        .contact {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .contact a {
+            color: var(--muted);
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+        }
+
+        main .wrap {
+            padding: 8px 22px 40px;
+        }
+
+        section {
+            padding-top: 40px;
+        }
+
+        h2 {
+            font-size: clamp(20px, 3.6vw, 26px);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -.01em;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--line);
+            margin-bottom: 18px;
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        .lead {
+            font-size: 17px;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        /* skills */
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .scard {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+        }
+
+        .scard h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            color: var(--ink);
+            padding: 4px 9px;
+            border-radius: 6px;
+        }
+
+        /* experience */
+        .job {
+            border-left: 2px solid var(--line);
+            padding: 0 0 24px 20px;
+            position: relative;
+        }
+
+        .job::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--accent-2);
+        }
+
+        .job:last-child {
+            padding-bottom: 0;
+        }
+
+        .jtop {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 4px 14px;
+            align-items: baseline;
+        }
+
+        .jrole {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+
+        .jdate {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .jsub {
+            font-size: 14px;
+            color: var(--accent);
+            font-style: italic;
+            margin: 2px 0 8px;
+        }
+
+        .job ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .job li {
+            margin-bottom: 6px;
+            font-size: 14.5px;
+        }
+
+        .job .tech-tagline {
+            margin-top: 8px;
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        .job .tech-tagline strong {
+            color: var(--ink);
+        }
+
+        /* featured project */
+        .feature {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .feature .ftag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .feature ul {
+            margin: 10px 0 0;
+            padding-left: 18px;
+        }
+
+        .feature li {
+            margin-bottom: 5px;
+            font-size: 14.5px;
+        }
+
+        .eduline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 10px;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .eduline strong {
+            color: var(--ink);
+        }
+
+        .eduline span {
+            color: var(--muted);
+            font-size: 14.5px;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            margin-top: 48px;
+        }
+
+        footer .wrap {
+            padding: 22px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 620px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="kicker">Technical Lead & Senior Full-Stack Developer</div>
-      <h1>Duong Tuong Due</h1>
-      <div class="role">Technical Lead &amp; Senior Full-Stack Developer&nbsp; ·&nbsp; NestJS · PHP/Laravel · Node.js · AWS</div>
-      <div class="contact">
-        <span>Ho Chi Minh City, Vietnam</span>
-        <span>|</span>
-        <span>+84 932 060 309</span>
-        <span>|</span>
-        <a href="mailto:duongtuongdue@gmail.com">duongtuongdue@gmail.com</a>
-        <span>|</span>
-        <a href="https://duongtuongdue.github.io" target="_blank" rel="noopener">duongtuongdue.github.io</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="wrap">
-
-      <section>
-        <h2>Professional Summary</h2>
-        <p class="lead">
-          I have over <strong>8 years</strong> of experience working in software development. I mainly work with <strong>PHP and Node.js</strong> frameworks such as <strong>Laravel</strong>, <strong>CodeIgniter</strong>, <strong>NestJS</strong>, and <strong>ExpressJS</strong>. As a backend engineer, I have more opportunities to work with databases closely, which is why I'm familiar with relational and NoSQL databases. Most PHP projects use <strong>MySQL</strong> and <strong>PostgreSQL</strong>. Recently, I have worked with <strong>MongoDB</strong> alongside <strong>NestJS</strong>. Besides that, many projects require developers to work on both front-end and back-end, which helps me learn much about technologies like <strong>ReactJS, VueJS, HTML, and CSS</strong>. I am not only programming project features but also joining the process of deployment, so I have a little bit of experience with <strong>CI, CD, Docker, and AWS</strong> (such as GitLab CI, ArgoCD, ELK monitoring logs). Regarding source control, I can work with <strong>Git, Bitbucket, and GitHub</strong>.
-        </p>
-      </section>
-
-      <section>
-        <h2>Technical Skills</h2>
-        <div class="skills">
-          <div class="scard">
-            <h3>Backend</h3>
-            <div class="chips"><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">Apiato</span><span class="chip">CakePHP</span><span class="chip">Symfony</span><span class="chip">CodeIgniter</span><span class="chip">NestJS</span><span class="chip">Node.js/Express</span><span class="chip">TypeScript</span></div>
-          </div>
-          <div class="scard">
-            <h3>Frontend</h3>
-            <div class="chips"><span class="chip">ReactJS</span><span class="chip">VueJS</span><span class="chip">NextJS</span><span class="chip">NuxtJS</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip">Material UI</span><span class="chip">shadcn/ui</span><span class="chip">Sass</span></div>
-          </div>
-          <div class="scard">
-            <h3>Data &amp; Messaging</h3>
-            <div class="chips"><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">DynamoDB</span><span class="chip">Kafka</span><span class="chip">RabbitMQ</span></div>
-          </div>
-          <div class="scard">
-            <h3>Cloud &amp; Delivery</h3>
-            <div class="chips"><span class="chip">AWS</span><span class="chip">GCP/Firebase</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">GitLab CI/CD</span><span class="chip">ArgoCD</span><span class="chip">ELK</span></div>
-          </div>
-          <div class="scard">
-            <h3>Integrations</h3>
-            <div class="chips"><span class="chip">Stripe</span><span class="chip">GMO</span><span class="chip">Twilio</span><span class="chip">Mailgun</span><span class="chip">SendGrid</span><span class="chip">Bugsnag</span></div>
-          </div>
-          <div class="scard">
-            <h3>AI &amp; Leadership</h3>
-            <div class="chips"><span class="chip">AI-assisted code review</span><span class="chip">AI agents</span><span class="chip">Engineering automation</span><span class="chip">Microservices</span><span class="chip">Agile/Scrum</span><span class="chip">Sprint planning</span><span class="chip">Code review</span><span class="chip">Mentoring</span><span class="chip">Interviewing</span></div>
-          </div>
+    <header class="hero">
+        <div class="wrap">
+            <div class="kicker">Senior Backend Developer</div>
+            <h1>Duong Tuong Due</h1>
+            <div class="role">Senior Backend Developer&nbsp; ·&nbsp; NestJS · Go · PHP/Laravel · Node.js · Cloud &amp; Microservices</div>
+            <div class="contact">
+                <span>Ho Chi Minh City, Vietnam</span>
+                <span>|</span>
+                <span>+84 932 060 309</span>
+                <span>|</span>
+                <a href="mailto:duongtuongdue@gmail.com">duongtuongdue@gmail.com</a>
+                <span>|</span>
+                <a href="https://duongtuongdue.github.io" target="_blank" rel="noopener">duongtuongdue.github.io</a>
+            </div>
         </div>
-      </section>
+    </header>
 
-      <section>
-        <h2>Selected Project Experience</h2>
+    <main>
+        <div class="wrap">
 
-        <div class="job">
-          <div class="jtop"><span class="jrole">Finviet — Technical Lead &amp; Full-Stack Developer</span><span class="jdate">Sep 2025 – Sep 2026</span></div>
-          <div class="jsub">ECO DMS — Distribution Management System · Team of 15–17 · finviet.com.vn</div>
-          <ul>
-            <li>Led technical delivery for ECO DMS, a NestJS monorepo of 15 microservices and shared <span class="mono">@app/*</span> libraries for retail distribution, web/mobile API gateways, data synchronization, job scheduling, and KPI reporting.</li>
-            <li>Designed MongoDB schemas as the single source of truth while maintaining legacy PHP/Apiato (Porto) APIs alongside NestJS services.</li>
-            <li>Built RabbitMQ Work Queue and Kafka workflows to move data sync, reporting, and history logging away from client-facing services.</li>
-            <li>Supported dev → UAT → production delivery with GitLab CI, Docker, Kubernetes, and ArgoCD across multi-pod services.</li>
-            <li>Integrated AI-powered code review into the CI/CD pipeline to automatically analyze pull requests for code quality, potential bugs, security risks, and coding-standard violations.</li>
-            <li>Built AI agents to automate DLSC tasks and streamline repetitive engineering workflows, improving developer productivity and delivery efficiency.</li>
-            <li>Led sprint planning, task assignment, pull-request reviews, and stakeholder clarification while reinforcing clean-code standards across the team.</li>
-          </ul>
+            <section>
+                <h2>Professional Summary</h2>
+                <p class="lead">
+                    Senior Backend Developer with over <strong>8 years</strong> of experience architecting and delivering high-throughput, scalable backend systems. Specialized in <strong>Node.js (NestJS, Express)</strong> and <strong>PHP (Laravel, Apiato, Symfony)</strong> ecosystems with hands-on research and practical implementation in <strong>Go (Golang)</strong> for high-concurrency workloads. Strong expertise in <strong>Microservices architecture</strong>, distributed systems, monorepo patterns, database optimization (<strong>MongoDB, MySQL, PostgreSQL, DynamoDB, Redis</strong>), asynchronous event-driven messaging (<strong>Kafka, RabbitMQ</strong>), and DevOps delivery (<strong>AWS, Docker, Kubernetes, GitLab CI/CD, ArgoCD</strong>). Proven leadership experience in sprint planning, technical architecture, and mentoring engineering teams.
+                </p>
+            </section>
+
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills">
+                    <div class="scard">
+                        <h3>Backend</h3>
+                        <div class="chips">
+                            <span class="chip">Go (Golang)</span>
+                            <span class="chip">NestJS</span>
+                            <span class="chip">Node.js/Express</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">PHP</span>
+                            <span class="chip">Laravel</span>
+                            <span class="chip">Apiato</span>
+                            <span class="chip">CakePHP</span>
+                            <span class="chip">Symfony</span>
+                            <span class="chip">CodeIgniter</span>
+                            <span class="chip">RESTful APIs</span>
+                        </div>
+                    </div>
+                    <div class="scard">
+                        <h3>Databases &amp; Caching</h3>
+                        <div class="chips">
+                            <span class="chip">MongoDB</span>
+                            <span class="chip">MySQL</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">Redis</span>
+                            <span class="chip">DynamoDB</span>
+                        </div>
+                    </div>
+                    <div class="scard">
+                        <h3>Message Brokers &amp; Queues</h3>
+                        <div class="chips">
+                            <span class="chip">Apache Kafka</span>
+                            <span class="chip">RabbitMQ</span>
+                            <span class="chip">Work Queues</span>
+                            <span class="chip">Event-Driven Architecture</span>
+                        </div>
+                    </div>
+                    <div class="scard">
+                        <h3>Cloud &amp; DevOps</h3>
+                        <div class="chips">
+                            <span class="chip">AWS (EC2, S3, RDS, Cognito, CloudFront)</span>
+                            <span class="chip">Docker</span>
+                            <span class="chip">Kubernetes</span>
+                            <span class="chip">GitLab CI/CD</span>
+                            <span class="chip">ArgoCD</span>
+                            <span class="chip">GCP / Firebase</span>
+                        </div>
+                    </div>
+                    <div class="scard">
+                        <h3>Frontend Knowledge</h3>
+                        <div class="chips">
+                            <span class="chip">ReactJS</span>
+                            <span class="chip">VueJS</span>
+                            <span class="chip">NextJS</span>
+                            <span class="chip">NuxtJS</span>
+                            <span class="chip">Tailwind CSS</span>
+                            <span class="chip">Bootstrap</span>
+                            <span class="chip">Material UI</span>
+                            <span class="chip">Sass</span>
+                        </div>
+                    </div>
+                    <div class="scard">
+                        <h3>Integrations &amp; Leadership</h3>
+                        <div class="chips">
+                            <span class="chip">Stripe</span>
+                            <span class="chip">GMO Payment</span>
+                            <span class="chip">Twilio</span>
+                            <span class="chip">Bugsnag</span>
+                            <span class="chip">Agile/Scrum</span>
+                            <span class="chip">Microservices Architecture</span>
+                            <span class="chip">Sprint Planning</span>
+                            <span class="chip">Code Review &amp; Mentoring</span>
+                            <span class="chip">AI-assisted Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Professional Experience</h2>
+
+                <!-- Finviet -->
+                <div class="job">
+                    <div class="jtop">
+                        <span class="jrole">Finviet — Backend Team Leader</span>
+                        <span class="jdate">Sep 2025 – Sep 2026</span>
+                    </div>
+                    <div class="jsub">ECO DMS — Distribution Management System · Team of 6 · <a href="https://finviet.com.vn" target="_blank" rel="noopener">finviet.com.vn</a></div>
+                    <p style="font-size: 14.5px; margin-bottom: 8px;"><strong>Project description:</strong> ECO DMS is a distribution management platform in Finviet’s retail ecosystem, helping brands and manufacturers optimize retail sales and supply chain workflows based on market data. The backend is architected as a NestJS monorepo comprising multiple microservices and shared libraries to handle high-throughput operations.</p>
+                    <ul>
+                        <li>Led a backend engineering team of 6 members; drove technical architecture decisions, sprint planning, task delegation, and PR code reviews.</li>
+                        <li>In charge of developing and maintaining core services and platforms within the monorepo architecture, including:
+                            <ul style="list-style-type: circle; margin-top: 4px; margin-bottom: 4px;">
+                                <li>Web &amp; Mobile API Gateways</li>
+                                <li>Web Portal</li>
+                                <li>Data Synchronization Service (real-time data sync across retail nodes)</li>
+                                <li>Scheduled Job &amp; Background Worker Services</li>
+                                <li>KPI Reporting &amp; Analytics Engine</li>
+                            </ul>
+                        </li>
+                        <li>Designed scalable MongoDB schemas for distribution network data and leveraged Redis for multi-layer caching and query optimization.</li>
+                        <li>Implemented asynchronous event-driven workflows using RabbitMQ (Work Queue model) and Kafka to offload heavy operations (data synchronization, batch reporting, audit logging) from client-facing services.</li>
+                        <li>Containerized services using Docker and collaborated on CI/CD deployment workflows with GitLab CI, Kubernetes, and ArgoCD.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> NestJS, TypeScript, ReactJS, MongoDB, Redis, RabbitMQ, Kafka, Docker, Kubernetes, GitLab CI/CD, ArgoCD.</div>
+                </div>
+
+                <!-- Tanaakk VN -->
+                <div class="job">
+                    <div class="jtop">
+                        <span class="jrole">Tanaakk VN — Senior Full Stack Developer (Sub-Lead)</span>
+                        <span class="jdate">Apr 2023 – Sep 2025</span>
+                    </div>
+                    <div class="jsub">Uqey (Tokai Rika) — Keyless car-rental mobile app, live across Japan · Team of 8 · <a href="https://uqey.com" target="_blank" rel="noopener">uqey.com</a></div>
+                    <p style="font-size: 14.5px; margin-bottom: 8px;"><strong>Project description:</strong> Uqey is an innovative 24/7 keyless car-rental platform operating across Japan (Okinawa, Fukuoka, etc.), enabling users to reserve, unlock, and return vehicles directly via a mobile app without physical paperwork or keys.</p>
+                    <ul>
+                        <li>Developed and maintained backend RESTful APIs and frontend interfaces supporting the end-to-end user rental journey, vehicle telemetry integration, and reservation lifecycle without paperwork.</li>
+                        <li>Built and optimized backend services using PHP (Laravel), DynamoDB, and AWS cloud infrastructure.</li>
+                        <li>Collaborated with BRSE, Comtor, and cross-functional teams to analyze technical requirements, decompose sprint tasks, and review code.</li>
+                        <li>Proposed optimization solutions spanning both frontend (VueJS) and backend components.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> PHP, Laravel, DynamoDB, AWS (Cognito, S3, EC2, CloudFront), VueJS, Docker.</div>
+                </div>
+
+                <!-- Freelance -->
+                <div class="job">
+                    <div class="jtop">
+                        <span class="jrole">Freelance — Senior Backend / Full-Stack Developer</span>
+                        <span class="jdate">Aug 2020 – Apr 2023</span>
+                    </div>
+                    <ul>
+                        <li><strong>High-Concurrency Systems (Golang):</strong> Self-studied and engineered Go (Golang) backend services for e-commerce and high-traffic booking platforms; leveraged core Go concurrency primitives (goroutines, channels/select, sync.Mutex, context package) to optimize throughput and handle concurrent loads of 30k–40k QPS.</li>
+                        <li><strong>E-commerce &amp; Web Applications:</strong> Built and enhanced e-commerce backend APIs using Node.js (Express.js) and MongoDB.</li>
+                        <li><strong>System Maintenance &amp; Upgrades:</strong> Maintained and upgraded legacy client web applications and CMS systems built with PHP (Laravel, CakePHP) and MySQL.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> Go (Golang), Node.js, Express.js, PHP (Laravel, CakePHP), MongoDB, MySQL, Redis, Docker.</div>
+                </div>
+
+                <!-- MOR Software -->
+                <div class="job">
+                    <div class="jtop">
+                        <span class="jrole">MOR Software — Team Leader</span>
+                        <span class="jdate">Jul 2018 – Aug 2020</span>
+                    </div>
+                    <div class="jsub">Team of 4–7 · <a href="https://morsoftware.com" target="_blank" rel="noopener">morsoftware.com</a></div>
+                    <p style="font-size: 14.5px; margin-bottom: 6px;"><strong>Key Projects Delivered:</strong></p>
+                    <ul>
+                        <li><strong>FreePlus:</strong> Airbnb-like travel &amp; hotel booking platform developed with Laravel, ReactJS, and MySQL.</li>
+                        <li><strong>Winboard:</strong> Enterprise HR &amp; personnel management system built with ReactJS and Laravel.</li>
+                        <li><strong>Jeca Japan &amp; MitsuiFood JP:</strong> Product management and exhibition event showcase platforms developed with CakePHP and MySQL.</li>
+                    </ul>
+                    <p style="font-size: 14.5px; margin-top: 8px; margin-bottom: 6px;"><strong>Responsibilities:</strong></p>
+                    <ul>
+                        <li>Led engineering teams (4–7 members), allocated resources, planned sprint timelines, and supervised end-to-end technical delivery.</li>
+                        <li>Actively architected and engineered core backend RESTful APIs during foundational project phases; provided continuous technical support and code reviews across backend and frontend.</li>
+                        <li>Built real-time chat service using Firebase and JavaScript; conducted technical interviews and mentored team members.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> PHP (Laravel, CakePHP), ReactJS, Redux, MySQL, Firebase, AWS Services, Docker.</div>
+                </div>
+
+                <!-- Vinasource (Poeta Company) -->
+                <div class="job">
+                    <div class="jtop">
+                        <span class="jrole">Vinasource (Poeta Company) — Senior Backend Developer</span>
+                        <span class="jdate">Jul 2016 – Jul 2018</span>
+                    </div>
+                    <div class="jsub">TransportMe — Bus fleet management &amp; ticketing operations platform (Australia)</div>
+                    <p style="font-size: 14.5px; margin-bottom: 8px;"><strong>Project description:</strong> TransportMe is a comprehensive bus fleet management and ticketing operations platform in Australia, providing real-time fleet tracking, automated ticketing, and reporting across passenger transport networks.</p>
+                    <ul>
+                        <li>Developed and maintained the web management portal and backend RESTful APIs powering two dedicated mobile applications: passenger ticketing app and driver operations app.</li>
+                        <li>Designed relational database schemas (MySQL) and built robust API endpoints supporting ticketing, route management, and passenger transactions.</li>
+                        <li>Integrated real-time features using Firebase and implemented error tracking and crash reporting with Bugsnag.</li>
+                        <li>Deployed and managed backend cloud services on AWS infrastructure.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> PHP (CodeIgniter), MySQL, Bootstrap, Bugsnag, Firebase, AWS Services.</div>
+                </div>
+
+                <!-- Earlier Experience -->
+                <div class="job">
+                    <div class="jtop">
+                        <span class="jrole">Earlier Roles (K&amp;G Outsourcing &amp; Worksmedia) — PHP Developer</span>
+                        <span class="jdate">Oct 2014 – Jun 2016</span>
+                    </div>
+                    <ul>
+                        <li><strong>Key Japanese Projects:</strong> <strong>of-tokyo.jp</strong> (Office leasing and rental portal in Tokyo), <strong>chumap.jp</strong> (Parking lot search &amp; lookup map platform), and internal enterprise information management systems.</li>
+                        <li>Developed backend APIs, CMS features, and database schemas using PHP (CakePHP, CodeIgniter, Zend Framework 2.x), MySQL, jQuery, and Bootstrap for Japanese clients.</li>
+                    </ul>
+                    <div class="tech-tagline"><strong>Technologies:</strong> PHP (CakePHP, CodeIgniter, Zend), MySQL, jQuery, Bootstrap.</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Featured Project</h2>
+                <div class="feature">
+                    <span class="ftag">ECO DMS · Finviet</span>
+                    <h3>Retail Distribution Management System</h3>
+                    <p>Enterprise distribution management platform for brands and manufacturers, covering web and mobile API gateways, web management portals, real-time data synchronization, scheduled background jobs, and KPI reporting.</p>
+                    <ul>
+                        <li><strong>Architecture:</strong> NestJS monorepo comprising multiple microservices and shared <span class="mono">@app/*</span> libraries for high-throughput distribution operations.</li>
+                        <li><strong>Data &amp; Messaging:</strong> MongoDB schemas as single source of truth, Redis caching, RabbitMQ Work Queue and Kafka workflows for event-driven asynchronous processing.</li>
+                        <li><strong>DevOps &amp; Delivery:</strong> GitLab CI/CD pipelines, containerized with Docker, deployed to Kubernetes, and managed via ArgoCD across multi-pod services.</li>
+                        <li><strong>Team Leadership:</strong> Managed a backend team of 6 engineers, driving sprint planning, architecture, task breakdown, and code reviews.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education &amp; Recognition</h2>
+                <div class="eduline"><strong>B.Eng. in Information Technology</strong><span>— Ho Chi Minh City University of Science (2008–2014)</span></div>
+                <div class="eduline"><strong>MVP 2019</strong><span>— MOR Software Company</span></div>
+            </section>
+
+            <section>
+                <h2>Languages</h2>
+                <p>Vietnamese (native) · English — comfortable reading and writing technical English; conversational.</p>
+            </section>
+
         </div>
+    </main>
 
-        <div class="job">
-          <div class="jtop"><span class="jrole">Finviet — Technical Lead &amp; Full-Stack Developer</span><span class="jdate">Ongoing</span></div>
-          <div class="jsub">DMS90 — Distribution Management System (PHP platform)</div>
-          <ul>
-            <li>Maintained the existing DMS90 platform and delivered new features covering distribution operations, master data, and reporting for brands and manufacturers.</li>
-            <li>Worked within a PHP/Laravel (Apiato – Porto) codebase structured as a monorepo with sub-repositories, so shared core modules and per-customer white-label packages stayed in sync.</li>
-            <li>Handled bug fixing, refactoring, and production support on the legacy codebase while the newer NestJS platform was being rolled out in parallel.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="jtop"><span class="jrole">Tanaakk VN — Technical Lead &amp; Full-Stack Developer</span><span class="jdate">Apr 2023 – Sep 2025</span></div>
-          <div class="jsub">Uqey (Tokai Rika) — Keyless car-rental mobile app, live across Japan · Team of 11 · uqey.com</div>
-          <ul>
-            <li>Developed and maintained backend APIs supporting the end-to-end rental journey, from booking through smartphone-based vehicle access and return without paperwork.</li>
-            <li>Delivered backend services with PHP/Laravel, DynamoDB, and AWS and proposed optimizations spanning both frontend and backend components.</li>
-            <li>Led weekly planning, task assignment, and pull-request reviews for an 11-member team.</li>
-            <li>Worked with BRSEs, Comtors, stakeholders, and leadership to clarify requirements and translate business needs into deliverable technical tasks.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="jtop"><span class="jrole">Freelance — Full-Stack Developer</span><span class="jdate">Aug 2020 – Apr 2023</span></div>
-          <ul>
-            <li>Maintained legacy Laravel and CakePHP systems and built an e-commerce backend with Node.js/Express and MongoDB.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="jtop"><span class="jrole">MOR Software — Team Leader</span><span class="jdate">Dec 2018 – Aug 2020</span></div>
-          <div class="jsub">Team of 4–7 · morsoftware.com</div>
-          <ul>
-            <li>Led delivery of PHP/Laravel/CakePHP CMS and APIs on AWS, React/Redux front ends, and a real-time Firebase chat service; deployed code, managed the team, and interviewed candidates.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="jtop"><span class="jrole">Earlier Roles — Senior / PHP Developer</span><span class="jdate">Jul 2015 – Dec 2018</span></div>
-          <div class="jsub">Vinasource, K&amp;G Outsourcing, Worksmedia (Japan)</div>
-          <ul>
-            <li>Delivered PHP CMS and APIs with CodeIgniter, Laravel, Symfony, and Zend on AWS for Vietnamese and Japanese clients.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h2>Featured Project</h2>
-        <div class="feature">
-          <span class="ftag">ECO DMS · Finviet</span>
-          <h3>Retail Distribution Management System</h3>
-          <p>Retail distribution platform for brands and manufacturers, covering web and mobile API gateways, data synchronization, scheduled jobs, history tracking, and KPI reporting.</p>
-          <ul>
-            <li><strong>Architecture:</strong> NestJS monorepo comprising 15 microservices and shared <span class="mono">@app/*</span> libraries for retail distribution, web/mobile API gateways, data synchronization, job scheduling, and KPI reporting.</li>
-            <li><strong>Data &amp; messaging:</strong> MongoDB as single source of truth, Redis cache, RabbitMQ Work Queue and Kafka workflows for data sync, reporting and history logging away from client-facing services.</li>
-            <li><strong>Legacy integration:</strong> PHP/Laravel and Apiato (Porto) APIs maintained alongside the NestJS services.</li>
-            <li><strong>Delivery:</strong> GitLab CI/CD pipelines from dev → UAT → prod, containerized with Docker, deployed to Kubernetes, and monitored/managed via ArgoCD across multi-pod services.</li>
-            <li><strong>AI automation:</strong> AI-assisted code review in CI/CD and AI agents for DLSC workflow automation.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h2>Education &amp; Recognition</h2>
-        <div class="eduline"><strong>B.Eng. in Information Technology</strong><span>— Ho Chi Minh City University of Science (2008–2014)</span></div>
-        <div class="eduline"><strong>MVP 2019</strong><span>— MOR Software Company</span></div>
-      </section>
-
-      <section>
-        <h2>Languages</h2>
-        <p>Vietnamese (native) · English — comfortable reading and writing technical English; conversational.</p>
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <div class="wrap">© 2026 Duong Tuong Due · Full-Stack Developer · Ho Chi Minh City, Vietnam</div>
-  </footer>
+    <footer>
+        <div class="wrap">© 2026 Duong Tuong Due · Senior Backend Developer · Ho Chi Minh City, Vietnam</div>
+    </footer>
 </body>
+
 </html>
